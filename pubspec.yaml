@@ -42,6 +42,11 @@ dependencies:
   another_flushbar: ^1.12.30
   flutter_screenutil: ^5.9.3
   supabase_flutter: ^2.6.0
+  flutter_bloc: ^8.1.6
+  equatable: ^2.0.5
+  get_it: ^7.7.0
+  gap: ^3.0.1
+  loader_overlay: ^4.0.1
 
 dev_dependencies:
   flutter_test:

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:profinder/shared/service_locator.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 bootstrap({
@@ -11,6 +12,7 @@ bootstrap({
   runZonedGuarded(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
+      setupLocator();
 
       LicenseRegistry.addLicense(() async* {
         final license = await rootBundle.loadString('google_fonts/OFL.txt');
