@@ -71,9 +71,9 @@ ThemeData buildLightTheme() {
     primaryTextTheme: buildTextTheme(
       base.primaryTextTheme,
     ),
-    // hintColor: AppColors.hintColor,
+    hintColor: AppColors.gray200,
     primaryColor: AppColors.primary,
-    scaffoldBackgroundColor: AppColors.white,
+    scaffoldBackgroundColor: AppColors.gray100,
     // dividerColor: AppColors.inputFillColors,
     appBarTheme: AppBarTheme(
       elevation: 0,

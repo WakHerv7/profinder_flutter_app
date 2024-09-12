@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -76,64 +77,85 @@ class _RegisterScreenState extends State<RegisterScreen> {
         }
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text("Register"),
-        ),
-        body: ListView(
-          children: [
-            TextFormField(
-              controller: fistNameController,
-              decoration: const InputDecoration(
-                label: Text("First Name"),
-                hintText: "First Name",
+        body: SafeArea(
+          child: ListView(
+            children: [
+              TextFormField(
+                controller: fistNameController,
+                decoration: const InputDecoration(
+                  label: Text("First Name"),
+                  hintText: "First Name",
+                ),
               ),
-            ),
-            const Gap(20),
-            TextFormField(
-              controller: lastNameController,
-              decoration: const InputDecoration(
-                label: Text("Last Name"),
-                hintText: "Last Name",
+              const Gap(20),
+              TextFormField(
+                controller: lastNameController,
+                decoration: const InputDecoration(
+                  label: Text("Last Name"),
+                  hintText: "Last Name",
+                ),
               ),
-            ),
-            const Gap(20),
-            TextFormField(
-              controller: emailController,
-              decoration: const InputDecoration(
-                label: Text("Email"),
-                hintText: "Email",
+              const Gap(20),
+              TextFormField(
+                controller: emailController,
+                decoration: const InputDecoration(
+                  label: Text("Email"),
+                  hintText: "Email",
+                ),
               ),
-            ),
-            const Gap(20),
-            TextFormField(
-              controller: phoneController,
-              decoration: const InputDecoration(
-                label: Text("Phone Number"),
-                hintText: "Phone Number",
+              const Gap(20),
+              TextFormField(
+                controller: phoneController,
+                decoration: const InputDecoration(
+                  label: Text("Phone Number"),
+                  hintText: "Phone Number",
+                ),
               ),
-            ),
-            const Gap(20),
-            TextFormField(
-              controller: pwdController,
-              decoration: const InputDecoration(
-                label: Text("Password"),
-                hintText: "Password",
+              const Gap(20),
+              TextFormField(
+                controller: pwdController,
+                decoration: const InputDecoration(
+                  label: Text("Password"),
+                  hintText: "Password",
+                ),
               ),
-            ),
-            const Gap(40),
-            FilledButton(
-              onPressed: () {
-                authCubit.register(
-                  firstName: fistNameController.text,
-                  lastName: lastNameController.text,
-                  email: emailController.text,
-                  phoneNumber: phoneController.text,
-                  password: pwdController.text,
-                );
-              },
-              child: const Text("Register"),
-            )
-          ],
+              const Gap(40),
+              FilledButton(
+                onPressed: () {
+                  authCubit.register(
+                    firstName: fistNameController.text,
+                    lastName: lastNameController.text,
+                    email: emailController.text,
+                    phoneNumber: phoneController.text,
+                    password: pwdController.text,
+                  );
+                },
+                child: const Text(
+                  "Register",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+              const Gap(20),
+              RichText(
+                text: TextSpan(
+                  style: TextStyle(color: Colors.black),
+                  children: [
+                    TextSpan(text: "Already have an account ? "),
+                    TextSpan(
+                        text: 'Sign In',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            context.router.pushAndPopUntil(
+                              const LoginRoute(),
+                              predicate: (router) => false,
+                            );
+                          }),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

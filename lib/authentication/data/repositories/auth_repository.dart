@@ -40,6 +40,7 @@ class AuthRepository {
       "first_name": firstName,
       "phone_number": phoneNumber,
     };
+    // si les datas qui sont set en bd n'ont pas le password, comment est ce que le login reussit a passer ? Ou est stocke le password recupere lors du registering ?
 
     return await upSetUser(data: data);
   }

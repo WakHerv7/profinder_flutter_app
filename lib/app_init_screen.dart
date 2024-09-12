@@ -21,7 +21,7 @@ class _AppInitScreenState extends State<AppInitScreen> {
   void handleNextRoute() async {
     await Future.delayed(const Duration(seconds: 3), () {
       context.router.pushAndPopUntil(
-        const RegisterRoute(),
+        const LoginRoute(),
         predicate: (router) => false,
       );
     });

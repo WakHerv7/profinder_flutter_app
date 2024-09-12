@@ -9,7 +9,7 @@ class AppDialog {
     double height = 350,
     double width = 320,
     bool barrierDismissible = true,
-    String barrierLabel = "FRIMOT",
+    String barrierLabel = "PROFINDER",
     Color barrierColor = Colors.black,
     Alignment alignment = Alignment.center,
     EdgeInsets padding = EdgeInsets.zero,
